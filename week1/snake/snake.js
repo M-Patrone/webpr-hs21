@@ -17,12 +17,15 @@ let snake = [
 ];
 let food = {x: 15, y: 15};
 
-function snakeEquals(a, b) { 
-	/* fill here */
+function snakeEquals(a, b) {
+    return a.x === b.x && a.y===b.y;
 }
 
 function changeDirection(orientation) {
     /* fill here */
+    const idx = orientation.indexOf(direction);
+    direction = orientation[idx + 1];
+
 }
 
 function start() {
@@ -62,9 +65,11 @@ function nextBoard() {
         food.x = Math.floor(Math.random() * 20);   // place new food at random location
         food.y = Math.floor(Math.random() * 20);
     } else {
+        snake.pop();//removes the last element in an array
         /* fill here */ // no food found => no growth despite new head => remove last element
     }
-
+    snake.splice(0,0,head)
+    console.log(snake)
     /* fill here */; // put head at front of the list
 }
 
