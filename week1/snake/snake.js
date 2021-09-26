@@ -23,8 +23,8 @@ function snakeEquals(a, b) {
 
 function changeDirection(orientation) {
     /* fill here */
-    const idx = orientation.indexOf(direction);
-    direction = orientation[idx + 1];
+    const indexOfOrientation = orientation.indexOf(direction);
+    direction = orientation[indexOfOrientation+ 1];
 
 }
 
@@ -36,6 +36,7 @@ function start() {
     const leftArrow  = 37;
     window.onkeydown = evt => {
         const orientation = (evt.keyCode === rightArrow) ? clockwise : countercw;
+        console.log(orientation)
         changeDirection(orientation);
     };
 
@@ -69,7 +70,6 @@ function nextBoard() {
         /* fill here */ // no food found => no growth despite new head => remove last element
     }
     snake.splice(0,0,head)
-    console.log(snake)
     /* fill here */; // put head at front of the list
 }
 
