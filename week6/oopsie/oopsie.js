@@ -8,7 +8,28 @@
 //   proceed(stride) // proceed so many places
 //   fallback()      // "oopsie": go back to last start (fallback position)
 //   turn()          // cash in your win, update fallback position for next turn
-// 
+//
+function Player(firstname){
+    let fallbackIndex = 0; //ohne let funktioniert es nicht
+    let progressIndex = 0;
+    return{
+        proceed: function(stride){
+            progressIndex += stride;
+        },
+        fallback: function(){
+            progressIndex = fallbackIndex;
+        },
+        turn: function(){
+            fallbackIndex=progressIndex;
+        },
+        getFallbackIndex:function (){
+            return fallbackIndex;
+        },
+        getProgressIndex:function(){
+            return progressIndex;
+        }
+    }
+}
 
 function start() {
     const fields = document.getElementById('fields');
